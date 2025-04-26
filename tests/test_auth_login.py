@@ -1,14 +1,14 @@
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from data import Credentials
+from data import *
 from locators import Locators
 from curl import *
 
 class TestLogin:
     """Тесты для проверки входа в систему."""
 
-    def test_login_via_main_button(self, driver):
+    def test_login_via_main_button(self, driver, login):
         """Проверка входа через кнопку 'Войти в аккаунт' на главной."""
 
         # Используем WebDriver, который возвращает фикстура login
@@ -20,7 +20,7 @@ class TestLogin:
         order_button = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(Locators.PLACE_ORDER_BTN)
         ).text
-        assert order_button == "Оформить заказ"
+        assert order_button == Messages.order_button
 
     def test_login_via_personal_account_button(self, driver):
         """Проверка входа через кнопку 'Личный кабинет'."""
@@ -37,7 +37,7 @@ class TestLogin:
         order_button = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(Locators.PLACE_ORDER_BTN)
         ).text
-        assert order_button == "Оформить заказ"
+        assert order_button == Messages.order_button
 
     def test_login_via_registration_form(self, driver):
         """Проверка входа через кнопку в форме регистрации."""
@@ -60,7 +60,7 @@ class TestLogin:
         order_button = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(Locators.PLACE_ORDER_BTN)
         ).text
-        assert order_button == "Оформить заказ"
+        assert order_button == Messages.order_button
 
     def test_login_via_password_recovery_form(self, driver):
         """Проверка входа через кнопку в форме восстановления пароля."""
@@ -85,4 +85,4 @@ class TestLogin:
         order_button = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(Locators.PLACE_ORDER_BTN)
         ).text
-        assert order_button == "Оформить заказ"
+        assert order_button == Messages.order_button

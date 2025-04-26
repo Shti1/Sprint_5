@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from data import Credentials
+from data import *
 from locators import Locators
 from curl import *
 
@@ -29,7 +29,7 @@ class TestPersonalAccountNavigation:
         order_button = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(Locators.PLACE_ORDER_BTN)
         ).text
-        assert order_button == "Оформить заказ"
+        assert order_button == Messages.order_button
 
         # 4. Повторный переход в личный кабинет после авторизации
         driver.find_element(*Locators.ACCOUNT_BTN).click()

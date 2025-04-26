@@ -1,7 +1,7 @@
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from data import Credentials
+from data import *
 from locators import Locators
 from curl import *
 
@@ -19,7 +19,7 @@ class TestLogout:
         order_button = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located(Locators.PLACE_ORDER_BTN)
         ).text
-        assert order_button == "Оформить заказ"
+        assert order_button == Messages.order_button
 
         driver.find_element(*Locators.ACCOUNT_BTN).click()
         WebDriverWait(driver, 10).until(EC.url_to_be(main_site + 'account/profile'))

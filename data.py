@@ -4,3 +4,8 @@ class Credentials:
     password='Galaxy23'
 
 timeout = 20
+
+class Messages:
+    order_button = "Оформить заказ"
+
+timeout = 20
